@@ -1,12 +1,11 @@
 # Ownership Coin Staking Program
 
-Standalone staking rewards program for ownership coins launched through
-MetaDAO.
+Standalone staking rewards program for ownership coins launched on MetaDAO.
 
-This crate intentionally has no dependency on any launch program. Governance is
-modeled as a generic signer stored in `CoinConfig`; for a coin launched through
-MetaDAO, set that signer to the coin's launch/governance execution authority and
-route admin lifecycle calls through that governance flow.
+This program is designed exclusively for MetaDAO ownership coins. Each coin's
+staking lifecycle is controlled by the MetaDAO governance execution authority
+stored in `CoinConfig`, so pool creation and admin updates can be routed through
+the coin's proposal flow.
 
 ## Reward Model
 
@@ -40,7 +39,7 @@ route admin lifecycle calls through that governance flow.
 
 1. Create the reward mint with mint authority set to
    `reward_mint_authority`.
-2. Call `init_coin_config` with the desired MetaDAO authority signer.
+2. Call `init_coin_config` with the coin's MetaDAO governance authority signer.
 3. Call `init_stake_pool` for each `(stake_mint, reward_mint)` pair.
 4. Users call `stake`, `claim_stake_rewards`, and `unstake`.
 5. The configured coin authority can call `set_stake_pool_rewards`,

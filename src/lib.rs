@@ -1,10 +1,10 @@
 //! Standalone ownership-coin staking rewards program.
 //!
-//! Users stake one SPL token mint and earn a reward mint emitted by this
-//! program. It is designed for any ownership coin launched through MetaDAO,
-//! not for MetaDAO itself. Governance is intentionally generic: the configured
-//! authority is any signer, so a launch/governance executor PDA can own the
-//! lifecycle without this program depending on any launch program.
+//! Users stake one MetaDAO ownership coin mint and earn a reward mint emitted
+//! by this program. It is designed exclusively for ownership coins launched on
+//! MetaDAO, not for MetaDAO itself. The configured authority should be the
+//! coin's MetaDAO governance execution authority, so staking lifecycle changes
+//! can be routed through the coin's proposal flow.
 
 #![no_std]
 #![deny(unsafe_code)]
