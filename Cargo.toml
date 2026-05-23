@@ -1,0 +1,18 @@
+[package]
+name = "ownership-staking-program"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "ownership_staking_program"
+path = "src/lib.rs"
+
+[features]
+no-entrypoint = []
+test-sbf = []
+
+[dependencies]
+solana-program = "1.18"
+spl-token = { version = "4.0", features = ["no-entrypoint"] }
